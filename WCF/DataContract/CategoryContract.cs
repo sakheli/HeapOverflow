@@ -19,7 +19,7 @@ namespace WCF.DataContract
 
         [Required]
         [MaxLength(50)]
-        public byte[] categoryName { get; set; }
+        public string categoryName { get; set; }
 
         public virtual ICollection<PostContract> Posts { get; set; }
 

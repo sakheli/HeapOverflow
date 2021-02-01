@@ -43,9 +43,8 @@ namespace WCF.BusinessLogic
             return returnedUser;
         }
 
-        public static UserContract Register(UserContract user)
+        public static bool Register(UserContract user)
         {
-            UserContract returnedUser = null;
             using (Model1 db = new Model1())
             {
                 try
@@ -63,17 +62,10 @@ namespace WCF.BusinessLogic
                         email = user.email
                     };
 
-                    var result = db.Users.Where(i => i.email == user.email && i.password == user.password).Select(i =>
-                    new UserContract
-                    {
-                        id = i.id,
-                        username = i.username,
-                        assignedCategory = i.assignedCategory,
-                        email = i.email,
-                        roleId = i.roleId
-                    }).FirstOrDefault();
+                    db.Users.Add(newUser);
+                    db.SaveChanges();
 
-                    returnedUser = result;
+                    return true;
                 }
                 catch (Exception ex)
                 {
@@ -81,49 +73,52 @@ namespace WCF.BusinessLogic
                 }
             }
 
-            return returnedUser;
+            return false;
         }
 
-        public static PostContract AddPost(UserContract user)
+        public static bool AddPost(PostContract post, CategoryContract category, UserContract user)
         {
-            UserContract returnedUser = null;
             using (Model1 db = new Model1())
             {
                 try
                 {
-                    if (db.Users.Any(i => i.email.Equals(user.email) || i.username.Equals(user.username)))
-                        throw new Exception("User already exists");
-
-                    var password = Hash(user.password);
-
-                    var newUser = new Users()
+                    var newPost = new Posts()
                     {
-                        username = user.username,
-                        password = password,
-                        assignedCategory = null,
-                        roleId = 0,
-                        email = user.email
+                        title = post.title,
+                        body = post.body,
+                        userId = user.id,
+                        categoryId = category.id
                     };
 
-                    var result = db.Users.Where(i => i.email == user.email && i.password == user.password).Select(i =>
-                    new UserContract
-                    {
-                        id = i.id,
-                        username = i.username,
-                        assignedCategory = i.assignedCategory,
-                        email = i.email,
-                        roleId = i.roleId
-                    }).FirstOrDefault();
+                    db.Posts.Add(newPost);
+                    db.SaveChanges();
 
-                    returnedUser = result;
+                    return true;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("This user already exists");
+                    throw new Exception("Post can't be created");
                 }
             }
 
-            return null;
+            return false;
+        }
+
+        public static bool AddReply(PostContract post, ReplyContract reply, UserContract user)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Post can't be created");
+                }
+            }
+
+            return false;
         }
     }
 }
