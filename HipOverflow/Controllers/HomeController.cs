@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace HipOverflow.Controllers
+namespace HeapOverflow.Controllers
 {
     public class HomeController : Controller
     {
