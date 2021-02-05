@@ -8,8 +8,8 @@ namespace HeapOverflow.Models
 {
     public class LoginModel
     {
-        [Display(Name = "Id")]
-        public int Id { get; set; }
+        //[Display(Name = "Id")]
+        //public int Id { get; set; }
 
         [Required(ErrorMessage = "მომხმარებლის იმეილი აუცილებელია")]
         [Display(Name = "მომხმარებლის იმეილი")]

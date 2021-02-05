@@ -25,8 +25,8 @@ namespace HeapOverflow.Models
 
 
         [Required(ErrorMessage = "პაროლი აუცილებელია")]
-        [MinLength(2, ErrorMessage = "სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები")]
-        [MaxLength(30, ErrorMessage = "სახელი არ უნდა იყოს 30 სიმბოლოზე მეტი")]
+        [MinLength(2, ErrorMessage = "პაროლი არ უნდა იყოს 2 სიმბოლოზე ნაკლები")]
+        [MaxLength(30, ErrorMessage = "პაროლი არ უნდა იყოს 30 სიმბოლოზე მეტი")]
         [Display(Name = "პაროლი")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
