@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HeapOverflow.Models;
+using HeapOverflow.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,15 +10,18 @@ namespace HeapOverflow.Controllers
 {
     public class PostsController : Controller
     {
+        Service1Client myService = new Service1Client();
         // GET: Posts
         public ActionResult Index()
         {
+          
             return View();
         }
 
         // GET: Posts/Details/5
         public ActionResult Details(int id)
         {
+
             return View();
         }
 

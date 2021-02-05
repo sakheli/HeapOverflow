@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WCF.DataContract;
 
 namespace HeapOverflow.Controllers
 {
     public class RegisterController : Controller
     {
-        ServiceReference1.Service1Client myService = new ServiceReference1.Service1Client();
+        Service1Client myService = new Service1Client();
         // GET: Register
         public ActionResult Index()
         {

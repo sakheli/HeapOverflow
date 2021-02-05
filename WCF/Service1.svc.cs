@@ -82,5 +82,10 @@ namespace WCF
         {
             return BusinessLogic.BusinessLogic.GetUsers();
         }
+
+        public List<CategoryContract> GetCategories()
+        {
+            return BusinessLogic.BusinessLogic.GetCategories();
+        }
     }
 }

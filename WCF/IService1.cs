@@ -68,5 +68,9 @@ namespace WCF
         [OperationContract]
         [WebGet(UriTemplate = "/GetUsers", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
         List<UserContract> GetUsers();
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetCategories", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        List<CategoryContract> GetCategories();
     }
 }

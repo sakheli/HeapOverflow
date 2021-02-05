@@ -73,4 +73,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RoleContract" nillable="true" type="tns:RoleContract" />
+  <xs:complexType name="ArrayOfCategoryContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CategoryContract" nillable="true" type="tns:CategoryContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategoryContract" nillable="true" type="tns:ArrayOfCategoryContract" />
 </xs:schema>

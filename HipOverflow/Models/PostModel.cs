@@ -24,28 +24,16 @@ namespace HeapOverflow.Models
         public string body { get; set; }
 
 
+        [Required(ErrorMessage = "პასუხი არ არსებობს")]
+        [Display(Name = "პასუხი")]
+        public virtual ICollection<ReplyContract> Replies { get; set; }
+
         [Required(ErrorMessage = "კატეგორია არ არსებობს")]
         [Display(Name = "კატეგორია")]
-        public string  Category { get; set; }
+        public virtual CategoryContract Category { get; set; }
 
         [Required(ErrorMessage = "მომხმარებელი არ არსებობს")]
         [Display(Name = "მომხმარებელი")]
-        public string  Users { get; set; }
-
-        //[Required(ErrorMessage = "პასუხი არ არსებობს")]
-        //[Display(Name = "პასუხი")]
-        //public virtual ICollection<ReplyContract> Replies { get; set; }
-
-        //[Required(ErrorMessage = "კატეგორია არ არსებობს")]
-        //[Display(Name = "კატეგორია")]
-        //public virtual CategoryContract Category { get; set; }
-
-        //[Required(ErrorMessage = "მომხმარებელი არ არსებობს")]
-        //[Display(Name = "მომხმარებელი")]
-        //public virtual UserContract Users { get; set; }
-
-        //[Required(ErrorMessage = "პასუხი არ არსებობს")]
-        //[Display(Name = "პასუხი")]
-        //public virtual ICollection<ReplyContract> Replies { get; set; }
+        public virtual UserContract Users { get; set; }
     }
 }
