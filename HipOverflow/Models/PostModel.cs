@@ -10,7 +10,7 @@ namespace HeapOverflow.Models
 {
     public class PostModel
     {
-        //public int id { get; set; }
+        public int id { get; set; }
 
         [Required(ErrorMessage = "სათაური აუცილებელია")]
         [MinLength(2, ErrorMessage = "სათაური არ უნდა იყოს 2 სიმბოლოზე ნაკლები")]
@@ -23,16 +23,29 @@ namespace HeapOverflow.Models
         [Display(Name = "კონტენტი")]
         public string body { get; set; }
 
+
         [Required(ErrorMessage = "კატეგორია არ არსებობს")]
         [Display(Name = "კატეგორია")]
-        public virtual CategoryContract Category { get; set; }
+        public string  Category { get; set; }
 
         [Required(ErrorMessage = "მომხმარებელი არ არსებობს")]
         [Display(Name = "მომხმარებელი")]
-        public virtual UserContract Users { get; set; }
+        public string  Users { get; set; }
 
-        [Required(ErrorMessage = "პასუხი არ არსებობს")]
-        [Display(Name = "პასუხი")]
-        public virtual ICollection<ReplyContract> Replies { get; set; }
+        //[Required(ErrorMessage = "პასუხი არ არსებობს")]
+        //[Display(Name = "პასუხი")]
+        //public virtual ICollection<ReplyContract> Replies { get; set; }
+
+        //[Required(ErrorMessage = "კატეგორია არ არსებობს")]
+        //[Display(Name = "კატეგორია")]
+        //public virtual CategoryContract Category { get; set; }
+
+        //[Required(ErrorMessage = "მომხმარებელი არ არსებობს")]
+        //[Display(Name = "მომხმარებელი")]
+        //public virtual UserContract Users { get; set; }
+
+        //[Required(ErrorMessage = "პასუხი არ არსებობს")]
+        //[Display(Name = "პასუხი")]
+        //public virtual ICollection<ReplyContract> Replies { get; set; }
     }
 }
