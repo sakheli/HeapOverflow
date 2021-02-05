@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeapOverflow", "HipOverflow\HeapOverflow.csproj", "{BCC13880-9305-48D1-9A51-708AE607370C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B2C64BE7-3BBD-4DA1-ADBA-1B2FCE62FF46} = {B2C64BE7-3BBD-4DA1-ADBA-1B2FCE62FF46}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{B2C64BE7-3BBD-4DA1-ADBA-1B2FCE62FF46}"
 EndProject
