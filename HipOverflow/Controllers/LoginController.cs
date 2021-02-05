@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 
 
-namespace HipOverflow.Controllers
+namespace HeapOverflow.Controllers
 {
     public class LoginController : Controller
     {
@@ -16,6 +16,15 @@ namespace HipOverflow.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            if (Session["email"] != null && Session["id"] != null && Session["role"] != null)
+            {
+                return RedirectToRoute(new
+                {
+                    controller = "Home",
+                    action = "Index"
+                });
+            }
+
             return View();
         }
 
@@ -32,13 +41,36 @@ namespace HipOverflow.Controllers
                 UserContract obj = new UserContract();
                 
                 var serviceModel = myService.Login(model.Email, model.Password);
-                return RedirectToAction("Index");
+                Session.Add("email", serviceModel.email);
+                Session.Add("id", serviceModel.id);
+                Session.Add("role", serviceModel.roleId);
+
+                return RedirectToRoute(new
+                {
+                    controller = "Home",
+                    action = "Index"
+                });
             }
             catch
             {
                 return View(model);
             }
         }
+
+
+        public ActionResult Logout()
+        {
+            Session.Remove("email");
+            Session.Remove("id");
+            Session.Remove("role");
+
+            return RedirectToRoute(new
+            {
+                controller = "Login",
+                action = "Index"
+            });
+        }
+
 
     }
 }

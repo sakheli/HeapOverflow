@@ -20,6 +20,12 @@ namespace HeapOverflow
             //);
 
             routes.MapRoute(
+               name: "Default",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                 name: "Register",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Register", action = "Index", id = UrlParameter.Optional }
@@ -31,11 +37,7 @@ namespace HeapOverflow
              defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
           );
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+           
 
           
         }
