@@ -110,15 +110,69 @@ namespace WCF.BusinessLogic
             {
                 try
                 {
-
+                    var addedUser = db.Users.Where(x => x.id == user.id).FirstOrDefault();
+                    var addedPost = db.Posts.Where(x => x.id == post.id).FirstOrDefault();
+                    var newReply = new Replies()
+                    {
+                        body = reply.body,
+                        Users = addedUser,
+                    };
+                    newReply.Posts.Add(addedPost);
+                    addedPost.Replies.Add(newReply);
+                    db.Replies.Add(newReply);
+                    db.SaveChanges();
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Post can't be created");
+                    throw new Exception("Reply can't be created");
                 }
             }
 
             return false;
+        }
+
+        public static PostContract GetPost(int id)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var post = db.Posts.Where(x => x.id == id).FirstOrDefault();
+                    var postReplies = post.Replies.Select(x => new ReplyContract { 
+                        id = x.id,
+                        body = x.body,
+                        Users = new UserContract {
+                            id = x.Users.id,
+                            username = x.Users.username,
+                            email = x.Users.email
+                        }
+                    });
+                    var postContract = new PostContract
+                    {
+                        id = post.id,
+                        title = post.title,
+                        body = post.body,
+                        Category = new CategoryContract { 
+                            id = post.Category.id,
+                            categoryName = post.Category.categoryName
+                        },
+                        Replies = postReplies.ToList(),
+                        Users = new UserContract
+                        {
+                            id = post.Users.id,
+                            username = post.Users.username,
+                            email = post.Users.email
+                        }
+                    };
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Reply can't be created");
+                }
+            }
+
+            return null;
         }
     }
 }
