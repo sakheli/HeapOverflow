@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HeapOverflow.Models;
+using HeapOverflow.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,82 +10,38 @@ namespace HeapOverflow.Controllers
 {
     public class RegisterController : Controller
     {
+        ServiceReference1.Service1Client myService = new ServiceReference1.Service1Client();
         // GET: Register
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Register/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Register/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+   
 
         // POST: Register/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Index(RegisterModel model)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (!ModelState.IsValid)
+                    throw new Exception("მოდელი არ არის ვალიდური");
 
+                UserContract obj = new UserContract();
+
+                obj.username = model.Name;
+                obj.email = model.Email;
+                obj.password  = model.Password;
+
+                var serviceModel = myService.Register(obj);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
 
-        // GET: Register/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Register/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Register/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Register/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

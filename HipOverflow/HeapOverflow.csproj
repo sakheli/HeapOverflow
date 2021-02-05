@@ -14,11 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HeapOverflow</RootNamespace>
     <AssemblyName>HeapOverflow</AssemblyName>
-<<<<<<< HEAD
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-=======
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
->>>>>>> origin/morris
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -225,17 +221,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ProjectReference Include="..\WCF\WCF.csproj">
       <Project>{B2C64BE7-3BBD-4DA1-ADBA-1B2FCE62FF46}</Project>
       <Name>WCF</Name>
     </ProjectReference>
-=======
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
->>>>>>> origin/morris
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

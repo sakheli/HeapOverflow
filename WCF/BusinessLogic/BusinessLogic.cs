@@ -19,10 +19,12 @@ namespace WCF.BusinessLogic
 
         public static UserContract Login(string email, string password) {
             UserContract returnedUser = null;
+         
             using (Model1 db = new Model1()) {
                 try
                 {
-                    var result = db.Users.Where(i => i.email == email && i.password == Hash(password)).Select(i =>
+                    var pass = Hash(password);
+                    var result = db.Users.Where(i => i.email == email && i.password == pass).Select(i =>
                     new UserContract
                     {
                         id = i.id,
@@ -58,7 +60,7 @@ namespace WCF.BusinessLogic
                         username = user.username,
                         password = password,
                         assignedCategory = null,
-                        roleId = 0,
+                        roleId = 1,
                         email = user.email
                     };
 

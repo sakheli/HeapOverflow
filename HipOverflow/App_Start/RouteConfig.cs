@@ -13,11 +13,11 @@ namespace HeapOverflow
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Posts",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Posts", action = "Index", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "Posts",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Posts", action = "Index", id = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Register",
