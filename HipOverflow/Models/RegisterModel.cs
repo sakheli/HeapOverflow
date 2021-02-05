@@ -6,10 +6,17 @@ using System.Web;
 
 namespace HeapOverflow.Models
 {
-    public class LoginModel
+    public class RegisterModel
     {
         [Display(Name = "Id")]
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "მომხმარებლის სახელი აუცილებელია")]
+        [MinLength(2, ErrorMessage = "სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები")]
+        [MaxLength(50, ErrorMessage = "სახელი არ უნდა იყოს 50 სიმბოლოზე მეტი")]
+        [Display(Name = "მომხმარებლის სახელი")]
+        public string Name { get; set; }
+
 
         [Required(ErrorMessage = "მომხმარებლის იმეილი აუცილებელია")]
         [Display(Name = "მომხმარებლის იმეილი")]
