@@ -42,7 +42,31 @@ namespace WCF
         List<PostContract> GetPostsByUserId(int id);
 
         [OperationContract]
-        [WebGet(UriTemplate = "/DeletePost/{userId}", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        bool DeletePost(int userId, PostContract post);
+        [WebGet(UriTemplate = "/RemovePost/{userId}", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool RemovePost(int userId, PostContract post);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/AddMod", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool AddMod(int adminId, int userId);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/RemoveMod", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool RemoveMod(int adminId, int userId);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/AddCategory", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool AddCategory(int adminId, CategoryContract category);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/RemoveCategory", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool RemoveCategory(int adminId, int categoryId);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/ChangeTitle", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool ChangeTitle(int userId, int postId, string title);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetUsers", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        List<UserContract> GetUsers();
     }
 }

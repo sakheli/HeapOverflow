@@ -290,7 +290,7 @@ namespace WCF.BusinessLogic
             return null;
         }
 
-        public static bool DeletePost(int userId, PostContract post)
+        public static bool RemovePost(int userId, PostContract post)
         {
             using (Model1 db = new Model1())
             {
@@ -318,34 +318,174 @@ namespace WCF.BusinessLogic
             return false;
         }
 
-        //public static bool AddMod(UserContract admin, int userId)
-        //{
-        //    using (Model1 db = new Model1())
-        //    {
-        //        try
-        //        {
-        //            if(admin.Roles.roleName == "admin") { }
-        //            var returnedPost = db.Posts.Where(x => x.id == post.id).FirstOrDefault();
+        public static bool AddMod(int adminId, int userId)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var admin = db.Users.Where(x => x.id == adminId).FirstOrDefault();
+                    if (admin.Roles.roleName == "admin") {
+                        var newMod = db.Users.Where(x => x.id == userId).FirstOrDefault();
+                        newMod.Roles = db.Roles.Where(x => x.id == 2).FirstOrDefault();
+                        db.Users.Add(newMod);
 
-        //            if (user.id == returnedPost.Users.id || user.Roles.roleName == "admin" || (user.Roles.roleName == "mod" && returnedPost.Category.id == user.assignedCategory))
-        //            {
-        //                db.Posts.Remove(returnedPost);
-        //                db.SaveChanges();
-        //            }
-        //            else
-        //            {
-        //                throw new Exception("You're not authorized to delete this post.");
-        //            }
 
-        //            return true;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new Exception("Unable to delete post.");
-        //        }
-        //    }
+                        db.SaveChanges();
+                    }
 
-        //    return false;
-        //}
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("You're not authorized to perform this action.");
+                }
+            }
+
+            return false;
+        }
+
+        public static bool RemoveMod(int adminId, int userId)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var admin = db.Users.Where(x => x.id == adminId).FirstOrDefault();
+                    if (admin.Roles.roleName == "admin")
+                    {
+                        var newMod = db.Users.Where(x => x.id == userId).FirstOrDefault();
+                        newMod.Roles = db.Roles.Where(x => x.id == 1).FirstOrDefault();
+                        db.Users.Add(newMod);
+                        db.SaveChanges();
+                    }
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("You're not authorized to perform this action.");
+                }
+            }
+
+            return false;
+        }
+
+        public static bool AddCategory(int adminId, CategoryContract category)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var admin = db.Users.Where(x => x.id == adminId).FirstOrDefault();
+                    if (admin.Roles.roleName == "admin")
+                    {
+                        Category newCategory = new Category
+                        {
+                            categoryName = category.categoryName
+                        };
+                        db.Category.Add(newCategory);
+
+
+
+                        db.SaveChanges();
+                    }
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("You're not authorized to perform this action.");
+                }
+            }
+
+            return false;
+        }
+
+        public static bool RemoveCategory(int adminId, int categoryId)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var admin = db.Users.Where(x => x.id == adminId).FirstOrDefault();
+                    if (admin.Roles.roleName == "admin")
+                    {
+                        var category = db.Category.Where(x => x.id == categoryId).FirstOrDefault();
+                        db.Category.Remove(category);
+
+                        db.SaveChanges();
+                    }
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("You're not authorized to perform this action.");
+                }
+            }
+
+            return false;
+        }
+
+
+        public static bool ChangeTitle(int userId, int postId, string title)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var user = db.Users.Where(x => x.id == userId).FirstOrDefault();
+                    var post = db.Posts.Where(x => x.id == postId).FirstOrDefault();
+                    if (user.Roles.roleName == "admin" || (user.Roles.roleName == "mod" && post.Category.id == user.assignedCategory))
+                    {
+                        post.title = title;
+                        db.SaveChanges();
+                    }
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("You're not authorized to perform this action.");
+                }
+            }
+
+            return false;
+        }
+
+
+        public static List<UserContract> GetUsers()
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var users = db.Users.Select(x => new UserContract { 
+                        id = x.id,
+                        username = x.username,
+                        email = x.email,
+                        Category = new CategoryContract
+                        {
+                            id = x.Category.id,
+                            categoryName = x.Category.categoryName
+                        },
+                        Roles = new RoleContract
+                        {
+                            id = x.Roles.id,
+                            roleName = x.Roles.roleName
+                        }
+                    }).ToList();
+
+                    return users;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("You're not authorized to perform this action.");
+                }
+            }
+
+            return null;
+        }
     }
 }

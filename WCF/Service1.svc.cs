@@ -23,9 +23,9 @@ namespace WCF
             return BusinessLogic.BusinessLogic.AddReply(post, reply, user);
         }
 
-        public bool DeletePost(int userId, PostContract post)
+        public bool RemovePost(int userId, PostContract post)
         {
-            return BusinessLogic.BusinessLogic.DeletePost(userId, post);
+            return BusinessLogic.BusinessLogic.RemovePost(userId, post);
         }
 
         public PostContract GetPost(int id)
@@ -51,6 +51,36 @@ namespace WCF
         public bool Register(UserContract user)
         {
             return BusinessLogic.BusinessLogic.Register(user);
+        }
+
+        public bool AddMod(int adminId, int userId)
+        {
+            return BusinessLogic.BusinessLogic.AddMod(adminId, userId);
+        }
+
+        public bool RemoveMod(int adminId, int userId)
+        {
+            return BusinessLogic.BusinessLogic.RemoveMod(adminId, userId);
+        }
+
+        public bool AddCategory(int adminId, CategoryContract category)
+        {
+            return BusinessLogic.BusinessLogic.AddCategory(adminId, category);
+        }
+
+        public bool RemoveCategory(int adminId, int categoryId)
+        {
+            return BusinessLogic.BusinessLogic.RemoveCategory(adminId, categoryId);
+        }
+
+        public bool ChangeTitle(int userId, int postId, string title)
+        {
+            return BusinessLogic.BusinessLogic.ChangeTitle(userId, postId, title);
+        }
+
+        public List<UserContract> GetUsers()
+        {
+            return BusinessLogic.BusinessLogic.GetUsers();
         }
     }
 }
