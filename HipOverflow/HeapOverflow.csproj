@@ -225,7 +225,10 @@
       <Project>{B2C64BE7-3BBD-4DA1-ADBA-1B2FCE62FF46}</Project>
       <Name>WCF</Name>
     </ProjectReference>
-
+    <ProjectReference Include="..\WCF\WCF.csproj">
+      <Project>{B2C64BE7-3BBD-4DA1-ADBA-1B2FCE62FF46}</Project>
+      <Name>WCF</Name>
+    </ProjectReference>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
