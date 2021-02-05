@@ -9,686 +9,101 @@
 //------------------------------------------------------------------------------
 
 namespace HeapOverflow.ServiceReference1 {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserContract", Namespace="http://schemas.datacontract.org/2004/07/WCF.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class UserContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.CategoryContract CategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.PostContract[] PostsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.ReplyContract[] RepliesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.RoleContract RolesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> assignedCategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string emailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string passwordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int roleIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string usernameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.CategoryContract Category {
-            get {
-                return this.CategoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.PostContract[] Posts {
-            get {
-                return this.PostsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostsField, value) != true)) {
-                    this.PostsField = value;
-                    this.RaisePropertyChanged("Posts");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.ReplyContract[] Replies {
-            get {
-                return this.RepliesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RepliesField, value) != true)) {
-                    this.RepliesField = value;
-                    this.RaisePropertyChanged("Replies");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.RoleContract Roles {
-            get {
-                return this.RolesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RolesField, value) != true)) {
-                    this.RolesField = value;
-                    this.RaisePropertyChanged("Roles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> assignedCategory {
-            get {
-                return this.assignedCategoryField;
-            }
-            set {
-                if ((this.assignedCategoryField.Equals(value) != true)) {
-                    this.assignedCategoryField = value;
-                    this.RaisePropertyChanged("assignedCategory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string email {
-            get {
-                return this.emailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.emailField, value) != true)) {
-                    this.emailField = value;
-                    this.RaisePropertyChanged("email");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
-                    this.passwordField = value;
-                    this.RaisePropertyChanged("password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int roleId {
-            get {
-                return this.roleIdField;
-            }
-            set {
-                if ((this.roleIdField.Equals(value) != true)) {
-                    this.roleIdField = value;
-                    this.RaisePropertyChanged("roleId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string username {
-            get {
-                return this.usernameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.usernameField, value) != true)) {
-                    this.usernameField = value;
-                    this.RaisePropertyChanged("username");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CategoryContract", Namespace="http://schemas.datacontract.org/2004/07/WCF.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class CategoryContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.PostContract[] PostsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.UserContract[] UsersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string categoryNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.PostContract[] Posts {
-            get {
-                return this.PostsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostsField, value) != true)) {
-                    this.PostsField = value;
-                    this.RaisePropertyChanged("Posts");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.UserContract[] Users {
-            get {
-                return this.UsersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
-                    this.UsersField = value;
-                    this.RaisePropertyChanged("Users");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string categoryName {
-            get {
-                return this.categoryNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.categoryNameField, value) != true)) {
-                    this.categoryNameField = value;
-                    this.RaisePropertyChanged("categoryName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RoleContract", Namespace="http://schemas.datacontract.org/2004/07/WCF.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class RoleContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.UserContract[] UsersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string roleNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.UserContract[] Users {
-            get {
-                return this.UsersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
-                    this.UsersField = value;
-                    this.RaisePropertyChanged("Users");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string roleName {
-            get {
-                return this.roleNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.roleNameField, value) != true)) {
-                    this.roleNameField = value;
-                    this.RaisePropertyChanged("roleName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PostContract", Namespace="http://schemas.datacontract.org/2004/07/WCF.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class PostContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.CategoryContract CategoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.ReplyContract[] RepliesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.UserContract UsersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string bodyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int categoryIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string titleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int userIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.CategoryContract Category {
-            get {
-                return this.CategoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
-                    this.CategoryField = value;
-                    this.RaisePropertyChanged("Category");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.ReplyContract[] Replies {
-            get {
-                return this.RepliesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RepliesField, value) != true)) {
-                    this.RepliesField = value;
-                    this.RaisePropertyChanged("Replies");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.UserContract Users {
-            get {
-                return this.UsersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
-                    this.UsersField = value;
-                    this.RaisePropertyChanged("Users");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string body {
-            get {
-                return this.bodyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.bodyField, value) != true)) {
-                    this.bodyField = value;
-                    this.RaisePropertyChanged("body");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int categoryId {
-            get {
-                return this.categoryIdField;
-            }
-            set {
-                if ((this.categoryIdField.Equals(value) != true)) {
-                    this.categoryIdField = value;
-                    this.RaisePropertyChanged("categoryId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string title {
-            get {
-                return this.titleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.titleField, value) != true)) {
-                    this.titleField = value;
-                    this.RaisePropertyChanged("title");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int userId {
-            get {
-                return this.userIdField;
-            }
-            set {
-                if ((this.userIdField.Equals(value) != true)) {
-                    this.userIdField = value;
-                    this.RaisePropertyChanged("userId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ReplyContract", Namespace="http://schemas.datacontract.org/2004/07/WCF.DataContract")]
-    [System.SerializableAttribute()]
-    public partial class ReplyContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.PostContract[] PostsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HeapOverflow.ServiceReference1.UserContract UsersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string bodyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int userIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.PostContract[] Posts {
-            get {
-                return this.PostsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostsField, value) != true)) {
-                    this.PostsField = value;
-                    this.RaisePropertyChanged("Posts");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public HeapOverflow.ServiceReference1.UserContract Users {
-            get {
-                return this.UsersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
-                    this.UsersField = value;
-                    this.RaisePropertyChanged("Users");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string body {
-            get {
-                return this.bodyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.bodyField, value) != true)) {
-                    this.bodyField = value;
-                    this.RaisePropertyChanged("body");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int userId {
-            get {
-                return this.userIdField;
-            }
-            set {
-                if ((this.userIdField.Equals(value) != true)) {
-                    this.userIdField = value;
-                    this.RaisePropertyChanged("userId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
-        HeapOverflow.ServiceReference1.UserContract Login(string email, string password);
+        WCF.DataContract.UserContract Login(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
-        System.Threading.Tasks.Task<HeapOverflow.ServiceReference1.UserContract> LoginAsync(string email, string password);
+        System.Threading.Tasks.Task<WCF.DataContract.UserContract> LoginAsync(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Register", ReplyAction="http://tempuri.org/IService1/RegisterResponse")]
-        bool Register(HeapOverflow.ServiceReference1.UserContract user);
+        bool Register(WCF.DataContract.UserContract user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Register", ReplyAction="http://tempuri.org/IService1/RegisterResponse")]
-        System.Threading.Tasks.Task<bool> RegisterAsync(HeapOverflow.ServiceReference1.UserContract user);
+        System.Threading.Tasks.Task<bool> RegisterAsync(WCF.DataContract.UserContract user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPost", ReplyAction="http://tempuri.org/IService1/AddPostResponse")]
-        bool AddPost(HeapOverflow.ServiceReference1.PostContract post, HeapOverflow.ServiceReference1.CategoryContract category, int userId);
+        bool AddPost(WCF.DataContract.PostContract post, WCF.DataContract.CategoryContract category, int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPost", ReplyAction="http://tempuri.org/IService1/AddPostResponse")]
-        System.Threading.Tasks.Task<bool> AddPostAsync(HeapOverflow.ServiceReference1.PostContract post, HeapOverflow.ServiceReference1.CategoryContract category, int userId);
+        System.Threading.Tasks.Task<bool> AddPostAsync(WCF.DataContract.PostContract post, WCF.DataContract.CategoryContract category, int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddReply", ReplyAction="http://tempuri.org/IService1/AddReplyResponse")]
-        bool AddReply(HeapOverflow.ServiceReference1.PostContract post, HeapOverflow.ServiceReference1.ReplyContract reply, HeapOverflow.ServiceReference1.UserContract user);
+        bool AddReply(WCF.DataContract.PostContract post, WCF.DataContract.ReplyContract reply, WCF.DataContract.UserContract user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddReply", ReplyAction="http://tempuri.org/IService1/AddReplyResponse")]
-        System.Threading.Tasks.Task<bool> AddReplyAsync(HeapOverflow.ServiceReference1.PostContract post, HeapOverflow.ServiceReference1.ReplyContract reply, HeapOverflow.ServiceReference1.UserContract user);
+        System.Threading.Tasks.Task<bool> AddReplyAsync(WCF.DataContract.PostContract post, WCF.DataContract.ReplyContract reply, WCF.DataContract.UserContract user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPosts", ReplyAction="http://tempuri.org/IService1/GetPostsResponse")]
-        HeapOverflow.ServiceReference1.PostContract[] GetPosts(HeapOverflow.ServiceReference1.CategoryContract category);
+        WCF.DataContract.PostContract[] GetPosts(WCF.DataContract.CategoryContract category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPosts", ReplyAction="http://tempuri.org/IService1/GetPostsResponse")]
-        System.Threading.Tasks.Task<HeapOverflow.ServiceReference1.PostContract[]> GetPostsAsync(HeapOverflow.ServiceReference1.CategoryContract category);
+        System.Threading.Tasks.Task<WCF.DataContract.PostContract[]> GetPostsAsync(WCF.DataContract.CategoryContract category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPost", ReplyAction="http://tempuri.org/IService1/GetPostResponse")]
-        HeapOverflow.ServiceReference1.PostContract GetPost(int id);
+        WCF.DataContract.PostContract GetPost(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPost", ReplyAction="http://tempuri.org/IService1/GetPostResponse")]
-        System.Threading.Tasks.Task<HeapOverflow.ServiceReference1.PostContract> GetPostAsync(int id);
+        System.Threading.Tasks.Task<WCF.DataContract.PostContract> GetPostAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPostsByUserId", ReplyAction="http://tempuri.org/IService1/GetPostsByUserIdResponse")]
-        HeapOverflow.ServiceReference1.PostContract[] GetPostsByUserId(int id);
+        WCF.DataContract.PostContract[] GetPostsByUserId(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPostsByUserId", ReplyAction="http://tempuri.org/IService1/GetPostsByUserIdResponse")]
-        System.Threading.Tasks.Task<HeapOverflow.ServiceReference1.PostContract[]> GetPostsByUserIdAsync(int id);
+        System.Threading.Tasks.Task<WCF.DataContract.PostContract[]> GetPostsByUserIdAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePost", ReplyAction="http://tempuri.org/IService1/DeletePostResponse")]
-        bool DeletePost(int userId, HeapOverflow.ServiceReference1.PostContract post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemovePost", ReplyAction="http://tempuri.org/IService1/RemovePostResponse")]
+        bool RemovePost(int userId, WCF.DataContract.PostContract post);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePost", ReplyAction="http://tempuri.org/IService1/DeletePostResponse")]
-        System.Threading.Tasks.Task<bool> DeletePostAsync(int userId, HeapOverflow.ServiceReference1.PostContract post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemovePost", ReplyAction="http://tempuri.org/IService1/RemovePostResponse")]
+        System.Threading.Tasks.Task<bool> RemovePostAsync(int userId, WCF.DataContract.PostContract post);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddMod", ReplyAction="http://tempuri.org/IService1/AddModResponse")]
+        bool AddMod(int adminId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddMod", ReplyAction="http://tempuri.org/IService1/AddModResponse")]
+        System.Threading.Tasks.Task<bool> AddModAsync(int adminId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveMod", ReplyAction="http://tempuri.org/IService1/RemoveModResponse")]
+        bool RemoveMod(int adminId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveMod", ReplyAction="http://tempuri.org/IService1/RemoveModResponse")]
+        System.Threading.Tasks.Task<bool> RemoveModAsync(int adminId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddCategory", ReplyAction="http://tempuri.org/IService1/AddCategoryResponse")]
+        bool AddCategory(int adminId, WCF.DataContract.CategoryContract category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddCategory", ReplyAction="http://tempuri.org/IService1/AddCategoryResponse")]
+        System.Threading.Tasks.Task<bool> AddCategoryAsync(int adminId, WCF.DataContract.CategoryContract category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveCategory", ReplyAction="http://tempuri.org/IService1/RemoveCategoryResponse")]
+        bool RemoveCategory(int adminId, int categoryId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveCategory", ReplyAction="http://tempuri.org/IService1/RemoveCategoryResponse")]
+        System.Threading.Tasks.Task<bool> RemoveCategoryAsync(int adminId, int categoryId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeTitle", ReplyAction="http://tempuri.org/IService1/ChangeTitleResponse")]
+        bool ChangeTitle(int userId, int postId, string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeTitle", ReplyAction="http://tempuri.org/IService1/ChangeTitleResponse")]
+        System.Threading.Tasks.Task<bool> ChangeTitleAsync(int userId, int postId, string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsers", ReplyAction="http://tempuri.org/IService1/GetUsersResponse")]
+        WCF.DataContract.UserContract[] GetUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsers", ReplyAction="http://tempuri.org/IService1/GetUsersResponse")]
+        System.Threading.Tasks.Task<WCF.DataContract.UserContract[]> GetUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCategories", ReplyAction="http://tempuri.org/IService1/GetCategoriesResponse")]
+        WCF.DataContract.CategoryContract[] GetCategories();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCategories", ReplyAction="http://tempuri.org/IService1/GetCategoriesResponse")]
+        System.Threading.Tasks.Task<WCF.DataContract.CategoryContract[]> GetCategoriesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -718,68 +133,124 @@ namespace HeapOverflow.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public HeapOverflow.ServiceReference1.UserContract Login(string email, string password) {
+        public WCF.DataContract.UserContract Login(string email, string password) {
             return base.Channel.Login(email, password);
         }
         
-        public System.Threading.Tasks.Task<HeapOverflow.ServiceReference1.UserContract> LoginAsync(string email, string password) {
+        public System.Threading.Tasks.Task<WCF.DataContract.UserContract> LoginAsync(string email, string password) {
             return base.Channel.LoginAsync(email, password);
         }
         
-        public bool Register(HeapOverflow.ServiceReference1.UserContract user) {
+        public bool Register(WCF.DataContract.UserContract user) {
             return base.Channel.Register(user);
         }
         
-        public System.Threading.Tasks.Task<bool> RegisterAsync(HeapOverflow.ServiceReference1.UserContract user) {
+        public System.Threading.Tasks.Task<bool> RegisterAsync(WCF.DataContract.UserContract user) {
             return base.Channel.RegisterAsync(user);
         }
         
-        public bool AddPost(HeapOverflow.ServiceReference1.PostContract post, HeapOverflow.ServiceReference1.CategoryContract category, int userId) {
+        public bool AddPost(WCF.DataContract.PostContract post, WCF.DataContract.CategoryContract category, int userId) {
             return base.Channel.AddPost(post, category, userId);
         }
         
-        public System.Threading.Tasks.Task<bool> AddPostAsync(HeapOverflow.ServiceReference1.PostContract post, HeapOverflow.ServiceReference1.CategoryContract category, int userId) {
+        public System.Threading.Tasks.Task<bool> AddPostAsync(WCF.DataContract.PostContract post, WCF.DataContract.CategoryContract category, int userId) {
             return base.Channel.AddPostAsync(post, category, userId);
         }
         
-        public bool AddReply(HeapOverflow.ServiceReference1.PostContract post, HeapOverflow.ServiceReference1.ReplyContract reply, HeapOverflow.ServiceReference1.UserContract user) {
+        public bool AddReply(WCF.DataContract.PostContract post, WCF.DataContract.ReplyContract reply, WCF.DataContract.UserContract user) {
             return base.Channel.AddReply(post, reply, user);
         }
         
-        public System.Threading.Tasks.Task<bool> AddReplyAsync(HeapOverflow.ServiceReference1.PostContract post, HeapOverflow.ServiceReference1.ReplyContract reply, HeapOverflow.ServiceReference1.UserContract user) {
+        public System.Threading.Tasks.Task<bool> AddReplyAsync(WCF.DataContract.PostContract post, WCF.DataContract.ReplyContract reply, WCF.DataContract.UserContract user) {
             return base.Channel.AddReplyAsync(post, reply, user);
         }
         
-        public HeapOverflow.ServiceReference1.PostContract[] GetPosts(HeapOverflow.ServiceReference1.CategoryContract category) {
+        public WCF.DataContract.PostContract[] GetPosts(WCF.DataContract.CategoryContract category) {
             return base.Channel.GetPosts(category);
         }
         
-        public System.Threading.Tasks.Task<HeapOverflow.ServiceReference1.PostContract[]> GetPostsAsync(HeapOverflow.ServiceReference1.CategoryContract category) {
+        public System.Threading.Tasks.Task<WCF.DataContract.PostContract[]> GetPostsAsync(WCF.DataContract.CategoryContract category) {
             return base.Channel.GetPostsAsync(category);
         }
         
-        public HeapOverflow.ServiceReference1.PostContract GetPost(int id) {
+        public WCF.DataContract.PostContract GetPost(int id) {
             return base.Channel.GetPost(id);
         }
         
-        public System.Threading.Tasks.Task<HeapOverflow.ServiceReference1.PostContract> GetPostAsync(int id) {
+        public System.Threading.Tasks.Task<WCF.DataContract.PostContract> GetPostAsync(int id) {
             return base.Channel.GetPostAsync(id);
         }
         
-        public HeapOverflow.ServiceReference1.PostContract[] GetPostsByUserId(int id) {
+        public WCF.DataContract.PostContract[] GetPostsByUserId(int id) {
             return base.Channel.GetPostsByUserId(id);
         }
         
-        public System.Threading.Tasks.Task<HeapOverflow.ServiceReference1.PostContract[]> GetPostsByUserIdAsync(int id) {
+        public System.Threading.Tasks.Task<WCF.DataContract.PostContract[]> GetPostsByUserIdAsync(int id) {
             return base.Channel.GetPostsByUserIdAsync(id);
         }
         
-        public bool DeletePost(int userId, HeapOverflow.ServiceReference1.PostContract post) {
-            return base.Channel.DeletePost(userId, post);
+        public bool RemovePost(int userId, WCF.DataContract.PostContract post) {
+            return base.Channel.RemovePost(userId, post);
         }
         
-        public System.Threading.Tasks.Task<bool> DeletePostAsync(int userId, HeapOverflow.ServiceReference1.PostContract post) {
-            return base.Channel.DeletePostAsync(userId, post);
+        public System.Threading.Tasks.Task<bool> RemovePostAsync(int userId, WCF.DataContract.PostContract post) {
+            return base.Channel.RemovePostAsync(userId, post);
+        }
+        
+        public bool AddMod(int adminId, int userId) {
+            return base.Channel.AddMod(adminId, userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddModAsync(int adminId, int userId) {
+            return base.Channel.AddModAsync(adminId, userId);
+        }
+        
+        public bool RemoveMod(int adminId, int userId) {
+            return base.Channel.RemoveMod(adminId, userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveModAsync(int adminId, int userId) {
+            return base.Channel.RemoveModAsync(adminId, userId);
+        }
+        
+        public bool AddCategory(int adminId, WCF.DataContract.CategoryContract category) {
+            return base.Channel.AddCategory(adminId, category);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddCategoryAsync(int adminId, WCF.DataContract.CategoryContract category) {
+            return base.Channel.AddCategoryAsync(adminId, category);
+        }
+        
+        public bool RemoveCategory(int adminId, int categoryId) {
+            return base.Channel.RemoveCategory(adminId, categoryId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveCategoryAsync(int adminId, int categoryId) {
+            return base.Channel.RemoveCategoryAsync(adminId, categoryId);
+        }
+        
+        public bool ChangeTitle(int userId, int postId, string title) {
+            return base.Channel.ChangeTitle(userId, postId, title);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ChangeTitleAsync(int userId, int postId, string title) {
+            return base.Channel.ChangeTitleAsync(userId, postId, title);
+        }
+        
+        public WCF.DataContract.UserContract[] GetUsers() {
+            return base.Channel.GetUsers();
+        }
+        
+        public System.Threading.Tasks.Task<WCF.DataContract.UserContract[]> GetUsersAsync() {
+            return base.Channel.GetUsersAsync();
+        }
+        
+        public WCF.DataContract.CategoryContract[] GetCategories() {
+            return base.Channel.GetCategories();
+        }
+        
+        public System.Threading.Tasks.Task<WCF.DataContract.CategoryContract[]> GetCategoriesAsync() {
+            return base.Channel.GetCategoriesAsync();
         }
     }
 }

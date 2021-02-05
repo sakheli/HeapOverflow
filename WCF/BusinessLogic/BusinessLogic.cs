@@ -75,7 +75,6 @@ namespace WCF.BusinessLogic
                 }
             }
 
-            return false;
         }
 
         public static bool AddPost(PostContract post, CategoryContract category, int userId)
@@ -103,7 +102,6 @@ namespace WCF.BusinessLogic
                 }
             }
 
-            return false;
         }
 
         public static bool AddReply(PostContract post, ReplyContract reply, UserContract user)
@@ -288,8 +286,6 @@ namespace WCF.BusinessLogic
                     throw new Exception("Posts not found.");
                 }
             }
-
-            return null;
         }
 
         public static bool RemovePost(int userId, PostContract post)
@@ -487,7 +483,33 @@ namespace WCF.BusinessLogic
                 }
             }
 
-            return null;
+        }
+
+
+        public static List<CategoryContract> GetCategories()
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var categories = db.Category.Select(x => new CategoryContract
+                    {
+                        id = x.id,
+                        categoryName = x.categoryName,
+                    }).ToList();
+
+                    return categories;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("You're not authorized to perform this action.");
+                }
+            }
+
+
         }
     }
 }
+
+
+

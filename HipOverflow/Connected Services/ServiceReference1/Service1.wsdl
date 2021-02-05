@@ -49,11 +49,53 @@
   <wsdl:message name="IService1_GetPostsByUserId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPostsByUserIdResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_DeletePost_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePost" />
+  <wsdl:message name="IService1_RemovePost_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePost" />
   </wsdl:message>
-  <wsdl:message name="IService1_DeletePost_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePostResponse" />
+  <wsdl:message name="IService1_RemovePost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddMod_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMod" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddMod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveMod_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMod" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveMod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveModResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategory" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCategory" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangeTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTitle" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangeTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Login">
@@ -84,9 +126,37 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPostsByUserId" message="tns:IService1_GetPostsByUserId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPostsByUserIdResponse" message="tns:IService1_GetPostsByUserId_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeletePost">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePost" message="tns:IService1_DeletePost_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePostResponse" message="tns:IService1_DeletePost_OutputMessage" />
+    <wsdl:operation name="RemovePost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemovePost" message="tns:IService1_RemovePost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemovePostResponse" message="tns:IService1_RemovePost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddMod" message="tns:IService1_AddMod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddModResponse" message="tns:IService1_AddMod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemoveMod" message="tns:IService1_RemoveMod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveModResponse" message="tns:IService1_RemoveMod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddCategory" message="tns:IService1_AddCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddCategoryResponse" message="tns:IService1_AddCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemoveCategory" message="tns:IService1_RemoveCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveCategoryResponse" message="tns:IService1_RemoveCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangeTitle" message="tns:IService1_ChangeTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangeTitleResponse" message="tns:IService1_ChangeTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUsers" message="tns:IService1_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUsersResponse" message="tns:IService1_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCategories" message="tns:IService1_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCategoriesResponse" message="tns:IService1_GetCategories_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -154,8 +224,71 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeletePost">
-      <soap:operation soapAction="http://tempuri.org/IService1/DeletePost" style="document" />
+    <wsdl:operation name="RemovePost">
+      <soap:operation soapAction="http://tempuri.org/IService1/RemovePost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMod">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddMod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMod">
+      <soap:operation soapAction="http://tempuri.org/IService1/RemoveMod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCategory">
+      <soap:operation soapAction="http://tempuri.org/IService1/RemoveCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTitle">
+      <soap:operation soapAction="http://tempuri.org/IService1/ChangeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCategories" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -37,8 +37,6 @@ namespace HeapOverflow.Controllers
             {
                 if (!ModelState.IsValid)
                     throw new Exception("მოდელი არ არის ვალიდური");
-
-                UserContract obj = new UserContract();
                 
                 var serviceModel = myService.Login(model.Email, model.Password);
                 Session.Add("email", serviceModel.email);

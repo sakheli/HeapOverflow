@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HeapOverflow.Models.CategoryModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="container category-container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+                <a href="/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Create New Category</a>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.categoryName)
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.categoryName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+
+                </tr>
+            }
+            
+
+        </table>
+    </div>
+</div>
