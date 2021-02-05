@@ -17,12 +17,12 @@ namespace WCF.BusinessLogic
             return string.Concat(hash.Select(b => b.ToString("x2")));
         }
 
-        public static UserContract Login(UserContract user) {
+        public static UserContract Login(string email, string password) {
             UserContract returnedUser = null;
             using (Model1 db = new Model1()) {
                 try
                 {
-                    var result = db.Users.Where(i => i.email == user.email && i.password == Hash(user.password)).Select(i =>
+                    var result = db.Users.Where(i => i.email == email && i.password == Hash(password)).Select(i =>
                     new UserContract
                     {
                         id = i.id,
@@ -76,7 +76,7 @@ namespace WCF.BusinessLogic
             return false;
         }
 
-        public static bool AddPost(PostContract post, CategoryContract category, UserContract user)
+        public static bool AddPost(PostContract post, CategoryContract category, int userId)
         {
             using (Model1 db = new Model1())
             {
@@ -86,7 +86,7 @@ namespace WCF.BusinessLogic
                     {
                         title = post.title,
                         body = post.body,
-                        userId = user.id,
+                        userId = userId,
                         categoryId = category.id
                     };
 
@@ -131,6 +131,63 @@ namespace WCF.BusinessLogic
             return false;
         }
 
+
+        public static List<PostContract> GetPosts(CategoryContract category)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var posts = db.Posts.Where(x => x.Category.id == category.id).ToList();
+                    var returnedPosts = new List<PostContract>();
+
+                    foreach (var post in posts)
+                    {
+                        var postReplies = post.Replies.Select(x => new ReplyContract
+                        {
+                            id = x.id,
+                            body = x.body,
+                            Users = new UserContract
+                            {
+                                id = x.Users.id,
+                                username = x.Users.username,
+                                email = x.Users.email
+                            }
+                        });
+                        var postContract = new PostContract
+                        {
+                            id = post.id,
+                            title = post.title,
+                            body = post.body,
+                            Category = new CategoryContract
+                            {
+                                id = post.Category.id,
+                                categoryName = post.Category.categoryName
+                            },
+                            Replies = postReplies.ToList(),
+                            Users = new UserContract
+                            {
+                                id = post.Users.id,
+                                username = post.Users.username,
+                                email = post.Users.email
+                            }
+                        };
+
+                        returnedPosts.Add(postContract);
+                    }
+                  
+
+                    return returnedPosts;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Posts not found.");
+                }
+            }
+
+            return null;
+        }
+
         public static PostContract GetPost(int id)
         {
             using (Model1 db = new Model1())
@@ -164,15 +221,131 @@ namespace WCF.BusinessLogic
                             email = post.Users.email
                         }
                     };
-                    db.SaveChanges();
+
+                    return postContract;
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Reply can't be created");
+                    throw new Exception("Post not found");
                 }
             }
 
             return null;
         }
+
+
+        public static List<PostContract> GetPostsByUserId(int id)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var posts = db.Posts.Where(x => x.Users.id == id).ToList();
+                    var returnedPosts = new List<PostContract>();
+
+                    foreach (var post in posts)
+                    {
+                        var postReplies = post.Replies.Select(x => new ReplyContract
+                        {
+                            id = x.id,
+                            body = x.body,
+                            Users = new UserContract
+                            {
+                                id = x.Users.id,
+                                username = x.Users.username,
+                                email = x.Users.email
+                            }
+                        });
+                        var postContract = new PostContract
+                        {
+                            id = post.id,
+                            title = post.title,
+                            body = post.body,
+                            Category = new CategoryContract
+                            {
+                                id = post.Category.id,
+                                categoryName = post.Category.categoryName
+                            },
+                            Replies = postReplies.ToList(),
+                            Users = new UserContract
+                            {
+                                id = post.Users.id,
+                                username = post.Users.username,
+                                email = post.Users.email
+                            }
+                        };
+
+                        returnedPosts.Add(postContract);
+                    }
+
+
+                    return returnedPosts;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Posts not found.");
+                }
+            }
+
+            return null;
+        }
+
+        public static bool DeletePost(int userId, PostContract post)
+        {
+            using (Model1 db = new Model1())
+            {
+                try
+                {
+                    var user = db.Users.Where(x => x.id == userId).FirstOrDefault();
+                    var returnedPost = db.Posts.Where(x => x.id == post.id).FirstOrDefault();
+
+                    if (user.id == returnedPost.Users.id || user.Roles.roleName == "admin" || (user.Roles.roleName == "mod" && returnedPost.Category.id == user.assignedCategory)) {
+                        db.Posts.Remove(returnedPost);
+                        db.SaveChanges();
+                    } else
+                    {
+                        throw new Exception("You're not authorized to delete this post.");
+                    }
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("You're not authorized to do this.");
+                }
+            }
+
+            return false;
+        }
+
+        //public static bool AddMod(UserContract admin, int userId)
+        //{
+        //    using (Model1 db = new Model1())
+        //    {
+        //        try
+        //        {
+        //            if(admin.Roles.roleName == "admin") { }
+        //            var returnedPost = db.Posts.Where(x => x.id == post.id).FirstOrDefault();
+
+        //            if (user.id == returnedPost.Users.id || user.Roles.roleName == "admin" || (user.Roles.roleName == "mod" && returnedPost.Category.id == user.assignedCategory))
+        //            {
+        //                db.Posts.Remove(returnedPost);
+        //                db.SaveChanges();
+        //            }
+        //            else
+        //            {
+        //                throw new Exception("You're not authorized to delete this post.");
+        //            }
+
+        //            return true;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw new Exception("Unable to delete post.");
+        //        }
+        //    }
+
+        //    return false;
+        //}
     }
 }

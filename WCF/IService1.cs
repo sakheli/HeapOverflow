@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WCF.DataContract;
 
 namespace WCF
 {
@@ -12,36 +13,36 @@ namespace WCF
     [ServiceContract]
     public interface IService1
     {
+        [OperationContract]
+        [WebGet(UriTemplate = "/Login", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        UserContract Login(string email, string password);
 
         [OperationContract]
-        string GetData(int value);
+        [WebGet(UriTemplate = "/Register", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool Register(UserContract user);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        [WebGet(UriTemplate = "/AddPost", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool AddPost(PostContract post, CategoryContract category, int userId);
 
-        // TODO: Add your service operations here
-    }
+        [OperationContract]
+        [WebGet(UriTemplate = "/AddReply", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool AddReply(PostContract post, ReplyContract reply, UserContract user);
 
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetPosts", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        List<PostContract> GetPosts(CategoryContract category);
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetPost/{id}", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        PostContract GetPost(int id);
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetPostsByUserId/{id}", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        List<PostContract> GetPostsByUserId(int id);
 
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        [OperationContract]
+        [WebGet(UriTemplate = "/DeletePost/{userId}", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        bool DeletePost(int userId, PostContract post);
     }
 }

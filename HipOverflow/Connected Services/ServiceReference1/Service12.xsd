@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF.DataContract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF.DataContract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="UserContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:CategoryContract" />
+      <xs:element minOccurs="0" name="Posts" nillable="true" type="tns:ArrayOfPostContract" />
+      <xs:element minOccurs="0" name="Replies" nillable="true" type="tns:ArrayOfReplyContract" />
+      <xs:element minOccurs="0" name="Roles" nillable="true" type="tns:RoleContract" />
+      <xs:element minOccurs="0" name="assignedCategory" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="roleId" type="xs:int" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserContract" nillable="true" type="tns:UserContract" />
+  <xs:complexType name="CategoryContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Posts" nillable="true" type="tns:ArrayOfPostContract" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUserContract" />
+      <xs:element minOccurs="0" name="categoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryContract" nillable="true" type="tns:CategoryContract" />
+  <xs:complexType name="ArrayOfPostContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PostContract" nillable="true" type="tns:PostContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPostContract" nillable="true" type="tns:ArrayOfPostContract" />
+  <xs:complexType name="PostContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:CategoryContract" />
+      <xs:element minOccurs="0" name="Replies" nillable="true" type="tns:ArrayOfReplyContract" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserContract" />
+      <xs:element minOccurs="0" name="body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="categoryId" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PostContract" nillable="true" type="tns:PostContract" />
+  <xs:complexType name="ArrayOfReplyContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReplyContract" nillable="true" type="tns:ReplyContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReplyContract" nillable="true" type="tns:ArrayOfReplyContract" />
+  <xs:complexType name="ReplyContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Posts" nillable="true" type="tns:ArrayOfPostContract" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserContract" />
+      <xs:element minOccurs="0" name="body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReplyContract" nillable="true" type="tns:ReplyContract" />
+  <xs:complexType name="ArrayOfUserContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserContract" nillable="true" type="tns:UserContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserContract" nillable="true" type="tns:ArrayOfUserContract" />
+  <xs:complexType name="RoleContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUserContract" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleContract" nillable="true" type="tns:RoleContract" />
+</xs:schema>
