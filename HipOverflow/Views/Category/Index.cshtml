@@ -24,7 +24,7 @@
             {
                 <tr>
                     <td>
-                        @Html.RouteLink(item.categoryName, new { controller = "Post", action = "Index", id = item.id })
+                        @Html.RouteLink(item.categoryName, new { controller = "Posts", action = "Index", id = item.id })
                     </td>
                     <td>
                         @if (Session["role"].ToString() == "3")
