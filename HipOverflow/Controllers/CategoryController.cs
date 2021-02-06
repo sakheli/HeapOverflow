@@ -9,6 +9,7 @@ using WCF.DataContract;
 
 namespace HeapOverflow.Controllers
 {
+    [Auth]
     public class CategoryController : Controller
     {
         Service1Client myService = new Service1Client();

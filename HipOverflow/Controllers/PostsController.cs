@@ -8,11 +8,12 @@ using System.Web.Mvc;
 
 namespace HeapOverflow.Controllers
 {
+    [Auth]
     public class PostsController : Controller
     {
         Service1Client myService = new Service1Client();
         // GET: Posts
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
           
             return View();

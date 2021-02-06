@@ -10,7 +10,10 @@
     <div class="row col-md-6 col-md-offset-2 custyle">
         <table class="table table-striped custab">
             <thead>
-                <a href="/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Create New Category</a>
+                @if (Session["role"].ToString() == "3")
+                {
+                    <a href="/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Create New Category</a>
+                }
                 <tr>
                     <th>
                         @Html.DisplayNameFor(model => model.categoryName)
@@ -21,10 +24,13 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.categoryName)
+                        @Html.RouteLink(item.categoryName, new { controller = "Post", action = "Index", id = item.id })
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        @if (Session["role"].ToString() == "3")
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        }
                     </td>
 
                 </tr>
