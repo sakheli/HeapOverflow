@@ -35,7 +35,7 @@ namespace HeapOverflow.Controllers
         // GET: Category/Create
         public ActionResult Create()
         {
-            return View(new CategoryModel { });
+            return View();
         }
 
         // POST: Category/Create
@@ -44,16 +44,16 @@ namespace HeapOverflow.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                    throw new Exception("მოდელი არ არის ვალიდური");
+                if (Session["role"].ToString() == "3")
+                {
+                    if (!ModelState.IsValid)
+                        throw new Exception("მოდელი არ არის ვალიდური");
+               
+                    CategoryContract obj = new CategoryContract();
+                    obj.categoryName = model.categoryName;
 
-                CategoryContract obj = new CategoryContract();
-                /////
-                var adminId = 1;
-                ////
-                obj.categoryName = model.categoryName;
-
-                var serviceModel = myService.AddCategory(adminId,obj);
+                    var serviceModel = myService.AddCategory(int.Parse(Session["id"].ToString()), obj);
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -63,12 +63,13 @@ namespace HeapOverflow.Controllers
         }
 
         // GET: Category/Delete/5
-        public ActionResult Delete(int adminId,int categoryId)
+        public ActionResult Delete(int id)
         {
             try
             {
-                var serviceModel = myService.RemoveCategory(adminId,categoryId);
-
+                if(Session["role"].ToString() == "3") { 
+                    var serviceModel = myService.RemoveCategory(int.Parse(Session["id"].ToString()), id);
+                }
                 return RedirectToAction("Index");
             }
             catch

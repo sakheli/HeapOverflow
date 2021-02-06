@@ -12,7 +12,8 @@
             <thead>
                 @if (Session["role"].ToString() == "3")
                 {
-                    <a href="/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Create New Category</a>
+                    @Html.ActionLink("Create New Category", "Create", null, new { @class = "btn btn-primary btn-xs pull-right" })
+
                 }
                 <tr>
                     <th>
@@ -24,7 +25,7 @@
             {
                 <tr>
                     <td>
-                        @Html.RouteLink(item.categoryName, new { controller = "Post", action = "Index", id = item.id })
+                        @Html.RouteLink(item.categoryName, new { controller = "Posts", action = "Index", id = item.id })
                     </td>
                     <td>
                         @if (Session["role"].ToString() == "3")
