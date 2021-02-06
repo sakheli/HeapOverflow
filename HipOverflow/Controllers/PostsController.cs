@@ -14,10 +14,10 @@ namespace HeapOverflow.Controllers
     {
         Service1Client myService = new Service1Client();
         // GET: Posts
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
             List<PostModel> model = new List<PostModel>();
-            CategoryContract contract = new CategoryContract();
+            CategoryContract contract = new CategoryContract() { id = id };
 
             var service = myService.GetPosts(contract);
             foreach(var data in service)

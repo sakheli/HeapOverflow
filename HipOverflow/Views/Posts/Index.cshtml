@@ -42,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.Users)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id })
-                @Html.ActionLink("Details", "Details", new { id = item.id })
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Html.ActionLink("Edit", "Edit", new { id = item.id+1 })
+                @Html.ActionLink("Details", "Details", new { id = item.id+1 })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id+1 })
             </td>
         </tr>
     }
