@@ -75,7 +75,6 @@ namespace WCF.BusinessLogic
                 }
             }
 
-            return false;
         }
 
         public static bool AddPost(PostContract post, CategoryContract category, int userId)
@@ -103,7 +102,6 @@ namespace WCF.BusinessLogic
                 }
             }
 
-            return false;
         }
 
         public static bool AddReply(PostContract post, ReplyContract reply, UserContract user)

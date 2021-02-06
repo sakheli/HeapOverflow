@@ -122,13 +122,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AuthAttribute.cs" />
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
@@ -222,6 +222,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WCF\WCF.csproj">
+      <Project>{B2C64BE7-3BBD-4DA1-ADBA-1B2FCE62FF46}</Project>
+      <Name>WCF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WCF\WCF.csproj">
       <Project>{B2C64BE7-3BBD-4DA1-ADBA-1B2FCE62FF46}</Project>
       <Name>WCF</Name>

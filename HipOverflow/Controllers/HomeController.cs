@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace HeapOverflow.Controllers
 {
+    [Auth]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -19,7 +20,7 @@ namespace HeapOverflow.Controllers
 
             return View();
         }
-
+        
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

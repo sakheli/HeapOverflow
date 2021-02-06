@@ -11,14 +11,22 @@ namespace HeapOverflow.Controllers
 {
     public class RegisterController : Controller
     {
-        Service1Client myService = new Service1Client();
+        ServiceReference1.Service1Client myService = new ServiceReference1.Service1Client();
         // GET: Register
         public ActionResult Index()
         {
+            if (Session["email"] != null && Session["id"] != null && Session["role"] != null)
+            {
+                return RedirectToRoute(new
+                {
+                    controller = "Home",
+                    action = "Index"
+                });
+            }
             return View();
         }
 
-   
+        
 
         // POST: Register/Create
         [HttpPost]
@@ -36,7 +44,15 @@ namespace HeapOverflow.Controllers
                 obj.password  = model.Password;
 
                 var serviceModel = myService.Register(obj);
-                return RedirectToAction("Index");
+                if (serviceModel) {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Login",
+                        action = "Index"
+                    });
+                }
+                //return RedirectToAction("Index");
+                throw new Exception("მოდელი არ არის ვალიდური");
             }
             catch
             {

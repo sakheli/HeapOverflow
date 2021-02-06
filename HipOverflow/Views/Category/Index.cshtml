@@ -4,28 +4,39 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.categoryName)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.categoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new {  id=item.id })
-        </td>
-    </tr>
-}
+<div class="container category-container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+                @if (Session["role"].ToString() == "3")
+                {
+                    <a href="/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Create New Category</a>
+                }
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.categoryName)
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.RouteLink(item.categoryName, new { controller = "Post", action = "Index", id = item.id })
+                    </td>
+                    <td>
+                        @if (Session["role"].ToString() == "3")
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        }
+                    </td>
 
-</table>
+                </tr>
+            }
+            
+
+        </table>
+    </div>
+</div>
