@@ -23,6 +23,7 @@ namespace HeapOverflow.Controllers
             foreach(var data in service)
             {
                 PostModel obj = new PostModel();
+                obj.id = data.id;
                 obj.title = data.title;
                 obj.body = data.body;
                 obj.Category = data.Category;
@@ -112,6 +113,7 @@ namespace HeapOverflow.Controllers
             foreach (var data in service)
             {
                 PostModel obj = new PostModel();
+                obj.id = data.id;
                 obj.title = data.title;
                 obj.body = data.body;
                 obj.Category = data.Category;
@@ -149,7 +151,25 @@ namespace HeapOverflow.Controllers
         // GET: Posts/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            //if (Session["role"].ToString() == "3")
+            //{
+                var serviceModel1 = myService.GetPost(id);
+
+                PostModel obj = new PostModel();
+                obj.id = serviceModel1.id;
+                obj.title = serviceModel1.title;
+                obj.Category = serviceModel1.Category;
+                obj.Users = serviceModel1.Users;
+                obj.body = serviceModel1.body;
+                obj.Replies = serviceModel1.Replies;
+
+                var serviceModel2 = myService.RemovePost(int.Parse(Session["id"].ToString()), serviceModel1);
+            //}
+            return RedirectToRoute(new
+            {
+                controller = "Category",
+                action = "Index"
+            });
         }
 
         // POST: Posts/Delete/5
@@ -158,8 +178,6 @@ namespace HeapOverflow.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
                 return RedirectToAction("Index");
             }
             catch
