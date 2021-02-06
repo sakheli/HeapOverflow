@@ -18,9 +18,9 @@ namespace WCF
             return BusinessLogic.BusinessLogic.AddPost(post, categoryId, userId);
         }
 
-        public bool AddReply(PostContract post, ReplyContract reply, UserContract user)
+        public bool AddReply(int postId, string replyBody, int userId)
         {
-            return BusinessLogic.BusinessLogic.AddReply(post, reply, user);
+            return BusinessLogic.BusinessLogic.AddReply(postId, replyBody, userId);
         }
 
         public bool RemovePost(int userId, PostContract post)

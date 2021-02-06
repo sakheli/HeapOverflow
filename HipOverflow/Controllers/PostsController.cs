@@ -61,6 +61,35 @@ namespace HeapOverflow.Controllers
             return View(obj);
         }
 
+        [HttpPost]
+        // GET: Posts/Details/5
+        public ActionResult Details(PostModel postModel)
+        {
+            PostModel obj = new PostModel { };
+
+
+            myService.AddReply(postModel.id, postModel.title, int.Parse(Session["id"].ToString()));
+
+          
+
+            var serviceModel = myService.GetPost(postModel.id);
+
+            if (serviceModel == null)
+            {
+                TempData["Error"] = "ასეთი ჩანაწერი არ არსებობს";
+                return RedirectToAction("Index");
+            }
+
+            obj.id = serviceModel.id;
+            obj.title = serviceModel.title;
+            obj.Category = serviceModel.Category;
+            obj.Users = serviceModel.Users;
+            obj.body = serviceModel.body;
+            obj.Replies = serviceModel.Replies;
+
+            return View(obj);
+        }
+
         // GET: Posts/Create
         public ActionResult Create()
         {

@@ -104,17 +104,17 @@ namespace WCF.BusinessLogic
 
         }
 
-        public static bool AddReply(PostContract post, ReplyContract reply, UserContract user)
+        public static bool AddReply(int postId, string replyBody, int userId)
         {
             using (Model1 db = new Model1())
             {
                 try
                 {
-                    var addedUser = db.Users.Where(x => x.id == user.id).FirstOrDefault();
-                    var addedPost = db.Posts.Where(x => x.id == post.id).FirstOrDefault();
+                    var addedUser = db.Users.Where(x => x.id == userId).FirstOrDefault();
+                    var addedPost = db.Posts.Where(x => x.id == postId).FirstOrDefault();
                     var newReply = new Replies()
                     {
-                        body = reply.body,
+                        body = replyBody,
                         Users = addedUser,
                     };
                     newReply.Posts.Add(addedPost);

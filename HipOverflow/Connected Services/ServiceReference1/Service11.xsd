@@ -49,9 +49,9 @@
   <xs:element name="AddReply">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="post" nillable="true" type="q4:PostContract" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="reply" nillable="true" type="q5:ReplyContract" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="user" nillable="true" type="q6:UserContract" />
+        <xs:element minOccurs="0" name="postId" type="xs:int" />
+        <xs:element minOccurs="0" name="replyBody" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -65,14 +65,14 @@
   <xs:element name="GetPosts">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="category" nillable="true" type="q7:CategoryContract" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="category" nillable="true" type="q4:CategoryContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPostsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetPostsResult" nillable="true" type="q8:ArrayOfPostContract" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetPostsResult" nillable="true" type="q5:ArrayOfPostContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -86,7 +86,7 @@
   <xs:element name="GetPostResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetPostResult" nillable="true" type="q9:PostContract" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetPostResult" nillable="true" type="q6:PostContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -100,7 +100,7 @@
   <xs:element name="GetPostsByUserIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetPostsByUserIdResult" nillable="true" type="q10:ArrayOfPostContract" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetPostsByUserIdResult" nillable="true" type="q7:ArrayOfPostContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -108,7 +108,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userId" type="xs:int" />
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="post" nillable="true" type="q11:PostContract" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="post" nillable="true" type="q8:PostContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -153,7 +153,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="adminId" type="xs:int" />
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="category" nillable="true" type="q12:CategoryContract" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="category" nillable="true" type="q9:CategoryContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -203,7 +203,7 @@
   <xs:element name="GetUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetUsersResult" nillable="true" type="q13:ArrayOfUserContract" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetUsersResult" nillable="true" type="q10:ArrayOfUserContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -215,7 +215,7 @@
   <xs:element name="GetCategoriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q14:ArrayOfCategoryContract" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCF.DataContract" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q11:ArrayOfCategoryContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
