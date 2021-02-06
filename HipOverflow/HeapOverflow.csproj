@@ -133,6 +133,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,6 +141,9 @@
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ReplyModel.cs" />
+    <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +164,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Properties\DataSources\WCF.DataContract.CategoryContract.datasource" />
+    <Content Include="Properties\DataSources\WCF.DataContract.PostContract.datasource" />
+    <Content Include="Properties\DataSources\WCF.DataContract.UserContract.datasource" />
     <None Include="Connected Services\ServiceReference1\Service1.wsdl" />
     <None Include="Connected Services\ServiceReference1\Service1.xsd">
       <SubType>Designer</SubType>
@@ -170,9 +177,6 @@
     <None Include="Connected Services\ServiceReference1\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Properties\DataSources\WCF.DataContract.CategoryContract.datasource" />
-    <Content Include="Properties\DataSources\WCF.DataContract.PostContract.datasource" />
-    <Content Include="Properties\DataSources\WCF.DataContract.UserContract.datasource" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -205,6 +209,7 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Posts\Create.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
