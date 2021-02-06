@@ -36,15 +36,15 @@
                 @Html.DisplayFor(modelItem => item.body)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category)
+                @Html.DisplayFor(modelItem => item.Category.categoryName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Users)
+                @Html.DisplayFor(modelItem => item.Users.username)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id })
-                @Html.ActionLink("Details", "Details", new { id = item.id })
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Html.ActionLink("Edit", "Edit", new { id = item.id+1 })
+                @Html.ActionLink("Details", "Details", new { id = item.id+1 })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id+1 })
             </td>
         </tr>
     }

@@ -13,9 +13,9 @@ namespace WCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        public bool AddPost(PostContract post, CategoryContract category, int userId)
+        public bool AddPost(PostContract post, int categoryId, int userId)
         {
-            return BusinessLogic.BusinessLogic.AddPost(post, category, userId);
+            return BusinessLogic.BusinessLogic.AddPost(post, categoryId, userId);
         }
 
         public bool AddReply(PostContract post, ReplyContract reply, UserContract user)

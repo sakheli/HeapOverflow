@@ -28,10 +28,10 @@ namespace HeapOverflow.ServiceReference1 {
         System.Threading.Tasks.Task<bool> RegisterAsync(WCF.DataContract.UserContract user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPost", ReplyAction="http://tempuri.org/IService1/AddPostResponse")]
-        bool AddPost(WCF.DataContract.PostContract post, WCF.DataContract.CategoryContract category, int userId);
+        bool AddPost(WCF.DataContract.PostContract post, int categoryId, int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPost", ReplyAction="http://tempuri.org/IService1/AddPostResponse")]
-        System.Threading.Tasks.Task<bool> AddPostAsync(WCF.DataContract.PostContract post, WCF.DataContract.CategoryContract category, int userId);
+        System.Threading.Tasks.Task<bool> AddPostAsync(WCF.DataContract.PostContract post, int categoryId, int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddReply", ReplyAction="http://tempuri.org/IService1/AddReplyResponse")]
         bool AddReply(WCF.DataContract.PostContract post, WCF.DataContract.ReplyContract reply, WCF.DataContract.UserContract user);
@@ -149,12 +149,12 @@ namespace HeapOverflow.ServiceReference1 {
             return base.Channel.RegisterAsync(user);
         }
         
-        public bool AddPost(WCF.DataContract.PostContract post, WCF.DataContract.CategoryContract category, int userId) {
-            return base.Channel.AddPost(post, category, userId);
+        public bool AddPost(WCF.DataContract.PostContract post, int categoryId, int userId) {
+            return base.Channel.AddPost(post, categoryId, userId);
         }
         
-        public System.Threading.Tasks.Task<bool> AddPostAsync(WCF.DataContract.PostContract post, WCF.DataContract.CategoryContract category, int userId) {
-            return base.Channel.AddPostAsync(post, category, userId);
+        public System.Threading.Tasks.Task<bool> AddPostAsync(WCF.DataContract.PostContract post, int categoryId, int userId) {
+            return base.Channel.AddPostAsync(post, categoryId, userId);
         }
         
         public bool AddReply(WCF.DataContract.PostContract post, WCF.DataContract.ReplyContract reply, WCF.DataContract.UserContract user) {

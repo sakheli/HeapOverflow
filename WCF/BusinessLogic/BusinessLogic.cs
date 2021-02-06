@@ -77,7 +77,7 @@ namespace WCF.BusinessLogic
 
         }
 
-        public static bool AddPost(PostContract post, CategoryContract category, int userId)
+        public static bool AddPost(PostContract post, int categoryId, int userId)
         {
             using (Model1 db = new Model1())
             {
@@ -88,7 +88,7 @@ namespace WCF.BusinessLogic
                         title = post.title,
                         body = post.body,
                         userId = userId,
-                        categoryId = category.id
+                        categoryId = categoryId
                     };
 
                     db.Posts.Add(newPost);
