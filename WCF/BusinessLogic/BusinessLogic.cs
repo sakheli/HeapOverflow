@@ -326,7 +326,7 @@ namespace WCF.BusinessLogic
                     if (admin.Roles.roleName == "admin") {
                         var newMod = db.Users.Where(x => x.id == userId).FirstOrDefault();
                         newMod.Roles = db.Roles.Where(x => x.id == 2).FirstOrDefault();
-                        db.Users.Add(newMod);
+                        //db.Users.Add(newMod);
 
 
                         db.SaveChanges();
@@ -354,7 +354,6 @@ namespace WCF.BusinessLogic
                     {
                         var newMod = db.Users.Where(x => x.id == userId).FirstOrDefault();
                         newMod.Roles = db.Roles.Where(x => x.id == 1).FirstOrDefault();
-                        db.Users.Add(newMod);
                         db.SaveChanges();
                     }
 
@@ -366,7 +365,6 @@ namespace WCF.BusinessLogic
                 }
             }
 
-            return false;
         }
 
         public static bool AddCategory(int adminId, CategoryContract category)
@@ -463,11 +461,7 @@ namespace WCF.BusinessLogic
                         id = x.id,
                         username = x.username,
                         email = x.email,
-                        Category = new CategoryContract
-                        {
-                            id = x.Category.id,
-                            categoryName = x.Category.categoryName
-                        },
+                        assignedCategory = x.assignedCategory,
                         Roles = new RoleContract
                         {
                             id = x.Roles.id,
