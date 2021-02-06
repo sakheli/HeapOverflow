@@ -78,3 +78,8 @@
 
 theme-label {
 }
+
+.tdstyles {
+    display: flex;
+    justify-content: space-between;
+}

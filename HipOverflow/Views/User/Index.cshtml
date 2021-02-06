@@ -4,6 +4,10 @@
     ViewBag.Title = "Index";
 }
 
+<head>
+    <meta charset="utf-8" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+</head>
 <h2>Index</h2>
 
 
@@ -29,10 +33,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.email)
         </td>
-        <td>
+        <td class="tdstyles">
             @Html.DisplayFor(modelItem => item.role)
         </td>
-        <td>
+        <td >
             @Html.ActionLink("Edit", "Create", new { id=item.id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id })
         </td>
