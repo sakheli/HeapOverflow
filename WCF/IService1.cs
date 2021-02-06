@@ -23,7 +23,7 @@ namespace WCF
 
         [OperationContract]
         [WebGet(UriTemplate = "/AddPost", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
-        bool AddPost(PostContract post, CategoryContract category, int userId);
+        bool AddPost(PostContract post, int categoryId, int userId);
 
         [OperationContract]
         [WebGet(UriTemplate = "/AddReply", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]

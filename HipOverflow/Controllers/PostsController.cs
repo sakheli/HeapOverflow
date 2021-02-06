@@ -63,8 +63,16 @@ namespace HeapOverflow.Controllers
         // GET: Posts/Create
         public ActionResult Create()
         {
+            var categories = myService.GetCategories().Select(x => new CategoryModel
+            {
+                id = x.id,
+                categoryName = x.categoryName
+            }).ToList();
+            ViewBag.Categories = new SelectList(categories, "id", "categoryName");
+
             return View(new PostModel { });
         }
+
 
         // POST: Posts/Create
         [HttpPost]
@@ -72,27 +80,48 @@ namespace HeapOverflow.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                    throw new Exception("მოდელი არ არის ვალიდური");
+                //if (!ModelState.IsValid)
+                //    throw new Exception("მოდელი არ არის ვალიდური");
 
                 PostContract obj = new PostContract();
                 CategoryContract categoryObj = new CategoryContract();
 
                 obj.id = postModel.id;
                 obj.title = postModel.title;
-                obj.Category = postModel.Category;
+                //obj.Category = postModel.Category;
                 obj.Users = postModel.Users;
                 obj.body = postModel.body;
                 obj.Replies = postModel.Replies;
 
 
-                var serviceModel = myService.AddPost(obj, categoryObj, postModel.id);
-                return RedirectToAction("Index");
+                var serviceModel = myService.AddPost(obj, postModel.categoryId, int.Parse(Session["id"].ToString()));
+                return RedirectToAction("MyPosts");
             }
-            catch
+            catch (Exception ex)
             {
                 return View(postModel);
             }
+        }
+
+
+        public ActionResult MyPosts()
+        {
+            List<PostModel> model = new List<PostModel>();
+            
+            var service = myService.GetPostsByUserId(int.Parse(Session["id"].ToString()));
+            foreach (var data in service)
+            {
+                PostModel obj = new PostModel();
+                obj.title = data.title;
+                obj.body = data.body;
+                obj.Category = data.Category;
+                obj.Users = data.Users;
+                obj.Replies = data.Replies;
+
+                model.Add(obj);
+            }
+
+            return View("index", model);
         }
 
         // GET: Posts/Edit/5

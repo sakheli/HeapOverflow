@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using WCF.DataContract;
 
 namespace HeapOverflow.Models
@@ -23,6 +24,9 @@ namespace HeapOverflow.Models
         [Display(Name = "კონტენტი")]
         public string body { get; set; }
 
+        public int categoryId { get; set; }
+
+        public IEnumerable<SelectListItem> selectedCategory { get; set; }
 
         [Required(ErrorMessage = "პასუხი არ არსებობს")]
         [Display(Name = "პასუხი")]
