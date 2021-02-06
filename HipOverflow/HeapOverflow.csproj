@@ -164,6 +164,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Properties\DataSources\WCF.DataContract.CategoryContract.datasource" />
+    <Content Include="Properties\DataSources\WCF.DataContract.PostContract.datasource" />
+    <Content Include="Properties\DataSources\WCF.DataContract.UserContract.datasource" />
     <None Include="Connected Services\ServiceReference1\Service1.wsdl" />
     <None Include="Connected Services\ServiceReference1\Service1.xsd">
       <SubType>Designer</SubType>
@@ -174,9 +177,6 @@
     <None Include="Connected Services\ServiceReference1\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Properties\DataSources\WCF.DataContract.CategoryContract.datasource" />
-    <Content Include="Properties\DataSources\WCF.DataContract.PostContract.datasource" />
-    <Content Include="Properties\DataSources\WCF.DataContract.UserContract.datasource" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
