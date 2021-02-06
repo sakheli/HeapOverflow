@@ -4,31 +4,54 @@
     ViewBag.Title = "Details";
 }
 
+<head>
+    <meta charset="utf-8" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+</head>
+
 <h2>Details</h2>
 
 <div>
     <h4>PostModel</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="post-wrapper">
         <dt>
             @Html.DisplayNameFor(model => model.title)
         </dt>
+
+        <br />
+
 
         <dd>
             @Html.DisplayFor(model => model.title)
         </dd>
 
+        <br />
         <dt>
             @Html.DisplayNameFor(model => model.body)
         </dt>
 
-        <dd>
+        <br />
+
+        <dd style="border:1px solid black;padding:4rem;">
             @Html.DisplayFor(model => model.body)
         </dd>
 
+        <br />
+        <br />
+        <h5>კომენტარები</h5>
+        @foreach (var item in Model.Replies)
+        {
+            <p>@Html.DisplayFor(modelItem => item.body)</p>
+        }
     </dl>
 </div>
+
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
+
